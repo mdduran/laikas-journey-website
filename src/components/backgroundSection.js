@@ -14,7 +14,7 @@ const BackgroundSection = () => {
         placeholder: file(relativePath: { eq: "galaxy-backdrop.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 200
+              width: 1920
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

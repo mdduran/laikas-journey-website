@@ -3,44 +3,41 @@ import { graphql, useStaticQuery } from "gatsby";
 import palette from "../styles";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
-
 import BackgroundImage from "gatsby-background-image";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage, getImage } from "gatsby-plugin-image";
+import { convertToBgImage } from "gbimage-bridge";
 
-const BackgroundSection = ({ className }) => {
-  const data = useStaticQuery(
+const BackgroundSection = () => {
+  const { placeholder } = useStaticQuery(
     graphql`
       query {
-        desktop: file(relativePath: { eq: "galaxy-backdrop.jpg" }) {
+        placeholder: file(relativePath: { eq: "galaxy-backdrop.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        logo: file(relativePath: { eq: "logo.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FIXED, width: 96, height: 96)
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
     `
   );
 
-  // Set ImageData.
-  const imageData = data.desktop.childImageSharp.fluid;
-  const logoData = data.logo.childImageSharp.gatsbyImageData;
+  // Set image data
+  const imageData = getImage(placeholder);
+  const bgImage = convertToBgImage(imageData);
 
   return (
-    <BackgroundImage
-      Tag="section"
-      className={className}
-      fluid={imageData}
-      backgroundColor={palette.richBlackFogra}
-    >
+    <BackgroundImage Tag="section" {...bgImage}>
       <Grid container style={{ padding: "0.5em 0 0 0.5em" }}>
         <Grid item>
-          <GatsbyImage image={logoData} alt="Laika's Journey Logo" />
+          <StaticImage
+            src="../images/logo.png"
+            alt="Laika's Journey Logo"
+            width={96}
+            height={96}
+          />
         </Grid>
         <Grid item>
           <h2 style={{ padding: "0 1em" }}>Laika's Journey</h2>

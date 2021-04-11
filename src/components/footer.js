@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Grid, Link } from "@material-ui/core";
 import { StaticImage } from "gatsby-plugin-image";
+import palette from "../styles";
 
 const Footer = () => {
   return (
@@ -16,10 +17,24 @@ const Footer = () => {
       <footer>
         <Grid container justify="center">
           <Grid container justify="center" item>
-            <Link href="#">Contact us</Link>
+            <Link
+              style={{
+                color: `${palette.deepPurple}`,
+              }}
+              href="mailto:nightapparatus@gmail.com"
+            >
+              <b>Contact us</b>
+            </Link>
           </Grid>
           <Grid container justify="center" item>
-            <Link href="#">Privacy Policy</Link>
+            <Link
+              style={{
+                color: `${palette.deepPurple}`,
+              }}
+              href="https://docs.google.com/document/d/1bWUzPLy7Du4QtvvuBGPOfWvOlXVfR2N_HKFWSxiVBNI/edit?usp=sharing"
+            >
+              <b>Privacy Policy</b>
+            </Link>
           </Grid>
         </Grid>
       </footer>

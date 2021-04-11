@@ -7,7 +7,11 @@ export default function Description() {
     <>
       <Box>
         <Paper
-          style={{ backgroundColor: palette.deepTaupe, padding: "1em 2em" }}
+          style={{
+            backgroundColor: palette.deepTaupe,
+            padding: "1em 2em",
+            marginBottom: "1em",
+          }}
           elevation={2}
         >
           In 1957, the Soviet Union sent a dog into orbit around the earth in

@@ -14,9 +14,9 @@ const BackgroundSection = () => {
         placeholder: file(relativePath: { eq: "galaxy-backdrop.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1920
+              layout: FULL_WIDTH
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -40,7 +40,15 @@ const BackgroundSection = () => {
           />
         </Grid>
         <Grid item>
-          <h2 style={{ padding: "0 1em" }}>Laika's Journey</h2>
+          <h2
+            style={{
+              padding: "0.5em 1em",
+              cursor: "default",
+              textShadow: `-1px 0 4px ${palette.richBlackFogra}, 0 1px 4px ${palette.richBlackFogra}, 1px 0 4px ${palette.richBlackFogra}, 0 -1px 4px ${palette.richBlackFogra}`,
+            }}
+          >
+            Laika's Journey
+          </h2>
         </Grid>
       </Grid>
     </BackgroundImage>

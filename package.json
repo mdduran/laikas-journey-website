@@ -1,6 +1,6 @@
 {
   "name": "laikas-journey-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Laika's Journey - Official Game Site",
   "author": "Marco Duran",
@@ -15,9 +15,13 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.6.0",
     "@fontsource/trispace": "^4.5.0",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.8",
+    "@mui/styles": "^5.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.5.2",
     "gatsby-background-image": "^1.6.0",
@@ -26,13 +30,12 @@
     "gatsby-plugin-sharp": "^4.5.1",
     "gatsby-plugin-styled-components": "^5.5.0",
     "gatsby-source-filesystem": "^4.5.1",
-    "gatsby-theme-material-ui": "^5.1.0",
     "gatsby-transformer-sharp": "^4.5.0",
     "gbimage-bridge": "^0.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-material-ui-carousel": "^2.3.8",
+    "react-material-ui-carousel": "^3.1.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

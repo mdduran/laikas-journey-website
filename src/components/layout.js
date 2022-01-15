@@ -1,11 +1,13 @@
-import * as React from "react";
-import { createGlobalStyle } from "styled-components";
-import palette from "../styles";
-import { AppBar } from "@material-ui/core";
-import { Helmet } from "react-helmet";
-import "@fontsource/trispace";
-import BackgroundSection from "./backgroundSection";
-import Footer from "../components/footer";
+import * as React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import palette from '../styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { AppBar } from '@mui/material';
+import { Helmet } from 'react-helmet';
+import '@fontsource/trispace';
+import BackgroundSection from './backgroundSection';
+import Footer from '../components/footer';
+
 const GlobalStyle = createGlobalStyle`
   html, #gatsby-focus-wrapper, #___gatsby {
     height: 100%;
@@ -44,40 +46,43 @@ const GlobalStyle = createGlobalStyle`
     flex-grow: 1;
   }
 `;
+const theme = createTheme();
 
 export default function Layout({ children }) {
   return (
     <>
       <GlobalStyle />
-      <div className="site">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Laika's Journey</title>
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/images/favicon/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/images/favicon/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/images/favicon/favicon-16x16.png"
-          />
-          <link rel="manifest" href="/images/favicon/site.webmanifest"></link>
-        </Helmet>
-        <AppBar position="sticky">
-          <BackgroundSection />
-        </AppBar>
-        <div className="content">{children}</div>
-        <Footer />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="site">
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Laika's Journey</title>
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/images/favicon/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/images/favicon/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/images/favicon/favicon-16x16.png"
+            />
+            <link rel="manifest" href="/images/favicon/site.webmanifest"></link>
+          </Helmet>
+          <AppBar position="sticky">
+            <BackgroundSection />
+          </AppBar>
+          <div className="content">{children}</div>
+          <Footer />
+        </div>
+      </ThemeProvider>
     </>
   );
 }

@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import palette from "../styles";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import BackgroundImage from "gatsby-background-image";
 import { StaticImage, getImage } from "gatsby-plugin-image";
 import { convertToBgImage } from "gbimage-bridge";

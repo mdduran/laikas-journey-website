@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Container } from "@material-ui/core";
+import { Box, Container } from "@mui/material";
 import Layout from "../components/layout";
 import Description from "../components/description";
 import Gallery from "../components/gallery";
